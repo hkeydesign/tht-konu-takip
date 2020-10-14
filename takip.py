@@ -3,13 +3,13 @@ from lxml import html
 import time
 from win10toast import ToastNotifier
 
-
+link = input('Konu Linki: ')
 
 temp = None
 temp_like = None
 while True:
     
-    r = requests.get('https://www.turkhackteam.org/android-gelistirme/1945678-android-uygulama-gelistirmek-dev-konu.html')
+    r = requests.get(link)
 
     tekil = html.fromstring(r.content)
     tekil = tekil.xpath('body/div[@id="posts"]/div/div/div[2]/div[@style="padding:0px 0px 0px 0px"][1]/div[@class="postbit-content d-flex"]/div[2]/div/div[1]/div/div[6]/a/@href')
